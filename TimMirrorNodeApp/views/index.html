@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		<%= title %>
+	</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+</head>
+
+<body>
+	<h1>
+		<%= title %>
+	</h1>
+  <br/>
+  <div class="message-area"></div>
+</body>
+<script>
+  var socket = io("localhost:4000");
+  
+  socket.on('showMsg', function(data){
+    console.log('message: ' + JSON.stringify(data));
+
+    $(".message-area").html('<h1>' + data.state + '</h1>');
+  });
+</script>
+
+</html>
