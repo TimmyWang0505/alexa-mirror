@@ -14,12 +14,21 @@ var app = express();
 
 iotDevice.addSubscribeTopic('hello');
 iotDevice.addSubscribeTopic('beauty');
+iotDevice.addSubscribeTopic('playMp3');
+iotDevice.addSubscribeTopic('stopMp3');
 
 iotDevice.setup(function(){});
 
 iotDevice.onMessage(function(topic, payload) {
-    var state = {topic:topic,state:payload.message};
-    io.emit('showMsg',state);
+    if (topic == 'playMp3') {
+      var state = {topic:topic,state:payload.message};
+      io.emit('playMp3',state);
+    } else if (topic == 'stopMp3') {
+      io.emit('stopMp3',state);
+    } else {
+      var state = {topic:topic,state:payload.message};
+      io.emit('showMsg',state);
+    }
 });
 
 // view engine setup

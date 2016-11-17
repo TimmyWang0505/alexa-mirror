@@ -6,12 +6,13 @@
 		<%= title %>
 	</title>
 	<link rel='stylesheet' href='/stylesheets/style.css' />
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <link rel='stylesheet' href='/stylesheets/animate.css' />
+  <script type="text/javascript" src="/javascripts/lib/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/lib/socket.io-1.4.5.js"></script>
 </head>
 
 <body>
-	<h1>
+	<h1 class="">
 		<%= title %>
 	</h1>
   <br/>
@@ -19,12 +20,26 @@
 </body>
 <script>
   var socket = io("localhost:4000");
+  var audio = new Audio('/mp3/Pen-Pineapple-Apple-Pen-Piko-Taro.mp3');
   
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
 
-    $(".message-area").html('<h1>' + data.state + '</h1>');
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.state + '</h1>');
   });
+
+  socket.on('playMp3', function(data){
+    console.log('message: ' + JSON.stringify(data));
+    audio.play();
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + 'Playing music [Pen Pineapple Apple Pen] :)' + '</h1>');
+  });
+
+  socket.on('stopMp3', function(data){
+    console.log('message: ' + JSON.stringify(data));
+    audio.stop();
+    $(".message-area").html('<h1 class="animated fadeInRightBig">Stop playing music</h1>');
+  });
+
 </script>
 
 </html>

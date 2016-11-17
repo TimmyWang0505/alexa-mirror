@@ -7,6 +7,12 @@
             "intent": "BeautyIntent"
         },
         {
+            "intent": "PlayMusicIntent"
+        },
+        {
+            "intent": "StopMusicIntent"
+        },
+        {
             "intent": "AMAZON.PauseIntent"
         },
         {

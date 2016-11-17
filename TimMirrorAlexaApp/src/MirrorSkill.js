@@ -37,7 +37,25 @@ MirrorSkill.prototype.intentHandlers = {
         var outputText = 'Hello!';
         iotDevice.setup(function(){
             iotDevice.pubMessage('hello', {'message': outputText}, function(){
-                response.tell(outputText);
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'PlayMusicIntent': function (intent, session, response) {
+        var outputText = 'Now playing music.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('playMp3', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'StopMusicIntent': function (intent, session, response) {
+        var outputText = 'Stop playing music.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('stopMp3', {'message': outputText}, function(){
+                response.ask(outputText);
             });
         });
     },
@@ -46,7 +64,7 @@ MirrorSkill.prototype.intentHandlers = {
         var outputText = 'Katie Ma is the most beautiful woman in the world!';
         iotDevice.setup(function(){
             iotDevice.pubMessage('beauty', {'message': outputText}, function(){
-                response.tell(outputText);
+                response.ask(outputText);
             });
         });
     },

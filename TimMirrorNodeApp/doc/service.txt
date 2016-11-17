@@ -1,0 +1,23 @@
+weather service:
+http://openweathermap.org/
+http://api.openweathermap.org/data/2.5/weather?APPID=a048156f2099e158578ebebe95311686&q=dalian
+
+http://www.weather.com.cn/data/sk/101070201.html
+http://www.weather.com.cn/data/cityinfo/101070201.html
+http://mobile.weather.com.cn/data/forecast/101070201.html
+
+http://wthrcdn.etouch.cn/weather_mini?citykey=101070201 ***************** Best
+http://wthrcdn.etouch.cn/WeatherApi?citykey=101070201 (XML)
+http://weatherapi.market.xiaomi.com/wtr-v2/weather?cityId=101070201 (XiaoMi)
+
+https://www.juhe.cn/
+
+Financial news
+
+https://feeds.finance.yahoo.com/rss/2.0/headline?s=ibm&region=US&lang=en-US
+
+http://finance.yahoo.com/rss/topfinstories
+
+Tech:
+
+xml 2 json
