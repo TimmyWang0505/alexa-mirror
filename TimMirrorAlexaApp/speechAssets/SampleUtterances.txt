@@ -11,7 +11,9 @@ BeautyIntent Who is the most beautiful
 BeautyIntent Who is the best look
 BeautyIntent Who is the best looking
 
-PlayMp3Intent music
-PlayMp3Intent play music
-StopMp3Intent stop play
-StopMp3Intent stop music
+BeautyIntent Who is the smartest person in the world
+
+PlayMusicIntent music
+PlayMusicIntent play music
+StopMusicIntent stop play
+StopMusicIntent stop music

@@ -14,6 +14,7 @@ var app = express();
 
 iotDevice.addSubscribeTopic('hello');
 iotDevice.addSubscribeTopic('beauty');
+iotDevice.addSubscribeTopic('smart');
 iotDevice.addSubscribeTopic('playMp3');
 iotDevice.addSubscribeTopic('stopMp3');
 

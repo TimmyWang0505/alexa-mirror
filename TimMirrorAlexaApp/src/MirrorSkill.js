@@ -46,7 +46,7 @@ MirrorSkill.prototype.intentHandlers = {
         var outputText = 'Now playing music.';
         iotDevice.setup(function(){
             iotDevice.pubMessage('playMp3', {'message': outputText}, function(){
-                response.ask(outputText);
+                response.tell(outputText);
             });
         });
     },
@@ -59,9 +59,18 @@ MirrorSkill.prototype.intentHandlers = {
             });
         });
     },
+    
+    'SmartIntent': function (intent, session, response) {
+        var outputText = 'Are you kiding me? Definitely Echo! The smartest person!';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('smart', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
 
     'BeautyIntent': function (intent, session, response) {
-        var outputText = 'Katie Ma is the most beautiful woman in the world!';
+        var outputText = 'Are you kiding me? Definitely Katie! The most beautiful woman in the world!';
         iotDevice.setup(function(){
             iotDevice.pubMessage('beauty', {'message': outputText}, function(){
                 response.ask(outputText);
