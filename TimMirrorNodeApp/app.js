@@ -12,20 +12,21 @@ var index = require('./routes/index');
 
 var app = express();
 
+iotDevice.addSubscribeTopic('launch');
+
+iotDevice.addSubscribeTopic('message');
 iotDevice.addSubscribeTopic('hello');
 iotDevice.addSubscribeTopic('beauty');
 iotDevice.addSubscribeTopic('smart');
-iotDevice.addSubscribeTopic('playMp3');
-iotDevice.addSubscribeTopic('stopMp3');
+// iotDevice.addSubscribeTopic('playMp3');
+// iotDevice.addSubscribeTopic('stopMp3');
 
 iotDevice.setup(function(){});
 
 iotDevice.onMessage(function(topic, payload) {
-    if (topic == 'playMp3') {
+    if (topic == 'launch') {
       var state = {topic:topic,state:payload.message};
-      io.emit('playMp3',state);
-    } else if (topic == 'stopMp3') {
-      io.emit('stopMp3',state);
+      io.emit('launch',state);
     } else {
       var state = {topic:topic,state:payload.message};
       io.emit('showMsg',state);

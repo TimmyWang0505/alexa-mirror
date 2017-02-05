@@ -12,3 +12,217 @@ a {
 .message {
   font-size: 60px;
 }
+
+.dj-container {
+  position: fixed;
+  bottom:30px;
+  right: 10px;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dj-body {
+    background-color: white;
+    height: 235px;
+    width: 206px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 102px 102px 0 0;
+    border: 2px solid black;
+    position: relative;
+    
+}
+
+.left-hand {
+    background-color: white;
+    height: 120px;
+    width: 80px;
+    margin-top: 140px;
+    margin-left: -70px;
+    border-radius: 40px;
+    border: 2px solid black;
+    position: absolute;
+    transform		:rotate(25deg);
+    z-index: 10;
+}
+.left-hand-inner {
+    background-color: black;
+    height: 110px;
+    width: 72px;
+    margin-top: 4px;
+    margin-left: 2px;
+    border-radius: 40px;
+    border: 2px solid black;
+    position: absolute;
+}
+
+.right-hand {
+    background-color: white;
+    height: 120px;
+    width: 80px;
+    margin-top: 140px;
+    margin-left:190px;
+    border-radius: 40px;
+    border: 2px solid black;
+    position: absolute;
+    transform		:rotate(-25deg);
+    z-index: 10;
+}
+.right-hand-inner {
+    background-color: black;
+    height: 110px;
+    width: 72px;
+    margin-top: 4px;
+    margin-left: 2px;
+    border-radius: 40px;
+    border: 2px solid black;
+    position: absolute;
+}
+
+.dj-body .dj-head {
+    background-color: black;
+    height: 224px;
+    width: 195px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 102px 102px 0 0;
+    border: 5px solid white;
+    position: absolute;
+    z-index: 50;
+}
+
+.dj-mouth {
+    background-color: white;
+    height: 120px;
+    width: 206px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0 0 102px 102px;
+    border: 2px solid black;
+    position: relative;
+
+}
+
+.dj-mouth .dj-mouth-inner {
+    background-color: black;
+    height: 110px;
+    width: 195px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0 0 102px 102px;
+    border: 5px solid white;
+    position: absolute;
+
+}
+
+.dj-head .dj-eye {
+    background-color		:#fefefe;
+	width					:150px;
+	height					:150px;
+	margin-left				:22px;
+	margin-top				:35px;
+	border-radius			:100px;
+	padding					:1px;
+}
+
+.dj-head .dj-eye .dj-eye-ball {
+    background-color		:#096688;
+	padding					:1px;
+	border-radius			:70px;
+	width					:75px;
+	height					:75px;
+	margin-top				:38px;
+	margin-left				:35px;
+	z-index					:15;
+}
+
+.dj-eye-ball .dj-eye-hole {
+    background-color		:#393939;
+	margin-right			:auto;
+	margin-left				:auto;
+	border-radius			:25px;
+	width					:45px;
+	height					:45px;
+	margin-top				:15px;
+	padding					:1px;
+}
+
+.eye-effect1 {
+	background-color		:#fff;
+	width					:25px;
+	height					:25px;
+	z-index					:15;
+	float					:left;
+	margin-left				:11px;
+	margin-top				:-6px;
+	opacity					:0.5;
+	border-radius			:14px;
+}
+.eye-effect2 {
+	background-color		:#fff;
+	border-radius			:7px;
+	width					:10px;
+	height					:10px;
+	margin-left				:29px;
+	margin-top				:26px;
+	opacity					:0.5;
+
+}
+.dj-name {
+    margin-left: 62px;
+    color: white;
+    position: relative;
+    font-size: 70px;
+}
+
+@-webkit-keyframes eyemove{
+	0%   {-webkit-transform		:translateX(-20px) ;}
+	50%  {-webkit-transform		:translateX(20px) ;}
+	100% {-webkit-transform		:translateX(-20px);}
+}
+
+@-webkit-keyframes handmoveleft{
+	0%   {-webkit-transform		:rotateZ(50deg) ;}
+	50%  {-webkit-transform		:rotateZ(20deg) ;}
+	100% {-webkit-transform		:rotateZ(50deg);}
+}
+
+@-webkit-keyframes handmoveright{
+	0%   {-webkit-transform		:rotateZ(-50deg) ;}
+	50%  {-webkit-transform		:rotateZ(-20deg) ;}
+	100% {-webkit-transform		:rotateZ(-50deg);}
+}
+
+@-webkit-keyframes talk{
+	0%   {-webkit-transform		:translateY(20px) ;}
+	50%  {-webkit-transform		:translateY(-10px) ;}
+	100% {-webkit-transform		:translateY(20px);}
+}
+
+.hand-move-left {
+    -webkit-animation-duration			:1s;
+	-webkit-animation-iteration-count	:infinite;
+	-webkit-animation-name				:handmoveleft;
+}
+
+.hand-move-right {
+    -webkit-animation-duration			:1s;
+	-webkit-animation-iteration-count	:infinite;
+	-webkit-animation-name				:handmoveright;
+}
+
+.eye-move {
+    -webkit-animation-duration			:2s;
+	-webkit-animation-iteration-count	:infinite;
+	-webkit-animation-name				:eyemove;
+}
+
+.talk {
+    -webkit-animation-duration			:0.5s;
+	-webkit-animation-iteration-count	:infinite;
+	-webkit-animation-name				:talk;
+}

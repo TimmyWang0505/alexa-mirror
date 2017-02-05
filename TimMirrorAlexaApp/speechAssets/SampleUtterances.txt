@@ -11,9 +11,13 @@ BeautyIntent Who is the most beautiful
 BeautyIntent Who is the best look
 BeautyIntent Who is the best looking
 
-BeautyIntent Who is the smartest person in the world
+SmartIntent Who is the smartest person in the world
 
 PlayMusicIntent music
 PlayMusicIntent play music
 StopMusicIntent stop play
 StopMusicIntent stop music
+
+WhatsIntent what's {Item}
+WhatsIntent tell me more about {Item}
+

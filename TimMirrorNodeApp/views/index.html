@@ -12,16 +12,49 @@
 </head>
 
 <body>
-	<h1 class="">
-		<%= title %>
-	</h1>
+    <h1 class="">
+        <%= title %>
+    </h1>
   <br/>
   <div class="message-area"></div>
+  <div class="dj-container">
+        <div class="dj-body">
+            <div class="dj-head">
+                <div class="dj-eye">
+                    <div class="dj-eye-ball eye-move">
+                        <div class="dj-eye-hole">
+                            <div class="eye-effect1"></div>
+                            <div class="eye-effect2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left-hand hand-move-left"><div class="left-hand-inner"></div></div>
+            <div class="right-hand hand-move-right"><div class="right-hand-inner"></div></div>
+        </div>
+        <div class="dj-mouth talk">
+            <div class="dj-mouth-inner">
+                <div class="dj-name">PI</div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
   var socket = io("localhost:4000");
   var audio = new Audio('/mp3/Pen-Pineapple-Apple-Pen-Piko-Taro.mp3');
-  
+  $(".dj-container").hide();
+  socket.on('launch', function(data){
+    $(".dj-container").show();
+  });
+
+  socket.on('sessionStart', function(data){
+    $(".dj-container").show();
+  });
+
+  socket.on('sessionEnd', function(data){
+    $(".dj-container").hide();
+  });
+
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
 

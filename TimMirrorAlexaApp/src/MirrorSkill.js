@@ -1,6 +1,6 @@
 var AlexaSkill = require('./AlexaSkill');
 var iotDevice = require('./IoTDevice');
-
+var items = require('./items');
 var config = require('../config');
 
 var APP_ID = config.aws.APP_ID;
@@ -12,17 +12,21 @@ var MirrorSkill = function () {
 MirrorSkill.prototype = Object.create(AlexaSkill.prototype);
 MirrorSkill.prototype.constructor = MirrorSkill;
 
+MirrorSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log('MirrorSkill onLaunch requestId: ' + launchRequest.requestId + ', sessionId: ' + session.sessionId);
+    iotDevice.setup(function(){
+        iotDevice.pubMessage('launch', {'message': 'launch'}, function(){
+            var speechOutput = 'Welcome to Tim mirror AI!';
+            var repromptText = 'Welcome to Tim mirror AI!';
+            response.ask(speechOutput, repromptText);
+        });
+    });
+};
+
 MirrorSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     console.log('MirrorSkill onSessionStarted requestId: ' + sessionStartedRequest.requestId
         + ', sessionId: ' + session.sessionId);
     // any initialization logic goes here
-};
-
-MirrorSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    console.log('MirrorSkill onLaunch requestId: ' + launchRequest.requestId + ', sessionId: ' + session.sessionId);
-    var speechOutput = 'Welcome to Tim mirror AI!';
-    var repromptText = 'Welcome to Tim mirror AI!';
-    response.ask(speechOutput, repromptText);
 };
 
 MirrorSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
@@ -73,6 +77,25 @@ MirrorSkill.prototype.intentHandlers = {
         var outputText = 'Are you kiding me? Definitely Katie! The most beautiful woman in the world!';
         iotDevice.setup(function(){
             iotDevice.pubMessage('beauty', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'WhatsIntent': function (intent, session, response) {
+        var itemSlot = intent.slots.Item;
+        var itemName;
+        if (itemSlot && itemSlot.value){
+            itemName = itemSlot.value.toLowerCase();
+        }
+        var outputText;
+        if (items[itemName]) {
+            outputText = items[itemName];
+        } else {
+            outputText = "What's your question?";
+        }
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
                 response.ask(outputText);
             });
         });
