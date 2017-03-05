@@ -13,8 +13,11 @@ var index = require('./routes/index');
 var app = express();
 
 iotDevice.addSubscribeTopic('launch');
-
 iotDevice.addSubscribeTopic('message');
+iotDevice.addSubscribeTopic('showNameCard');
+iotDevice.addSubscribeTopic('showPic');
+
+
 iotDevice.addSubscribeTopic('hello');
 iotDevice.addSubscribeTopic('beauty');
 iotDevice.addSubscribeTopic('smart');
@@ -27,6 +30,12 @@ iotDevice.onMessage(function(topic, payload) {
     if (topic == 'launch') {
       var state = {topic:topic,state:payload.message};
       io.emit('launch',state);
+    } else if (topic == 'showNameCard') {
+      var state = {topic:topic,state:''};
+      io.emit('showNameCard',state);
+    } else if (topic == 'showPic') {
+      var state = {topic:topic,state:payload.name};
+      io.emit('showPic',state);
     } else {
       var state = {topic:topic,state:payload.message};
       io.emit('showMsg',state);

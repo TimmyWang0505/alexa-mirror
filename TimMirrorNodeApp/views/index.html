@@ -41,7 +41,7 @@
 </body>
 <script>
   var socket = io("localhost:4000");
-  var audio = new Audio('/mp3/Pen-Pineapple-Apple-Pen-Piko-Taro.mp3');
+
   $(".dj-container").hide();
   socket.on('launch', function(data){
     $(".dj-container").show();
@@ -59,18 +59,19 @@
     console.log('message: ' + JSON.stringify(data));
 
     $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.state + '</h1>');
+
+    $(".dj-container").show();
   });
 
-  socket.on('playMp3', function(data){
-    console.log('message: ' + JSON.stringify(data));
-    audio.play();
-    $(".message-area").html('<h1 class="animated fadeInRightBig">' + 'Playing music [Pen Pineapple Apple Pen] :)' + '</h1>');
-  });
 
-  socket.on('stopMp3', function(data){
-    console.log('message: ' + JSON.stringify(data));
-    audio.stop();
-    $(".message-area").html('<h1 class="animated fadeInRightBig">Stop playing music</h1>');
+  socket.on('showPic', function(data){
+      var who = data.state;
+      if (who == 'katie') {
+        $(".message-area").html('<img src="/pic/katie.jpg" />');
+      } else {
+        $(".message-area").html('<img src="/pic/jialing.jpg" />');
+      }
+    $(".dj-container").show();
   });
 
 </script>
