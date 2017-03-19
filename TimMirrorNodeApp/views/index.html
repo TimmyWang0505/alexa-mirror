@@ -12,10 +12,6 @@
 </head>
 
 <body>
-    <h1 class="">
-        <%= title %>
-    </h1>
-  <br/>
   <div class="message-area"></div>
   <div class="dj-container">
         <div class="dj-body">
@@ -34,7 +30,7 @@
         </div>
         <div class="dj-mouth talk">
             <div class="dj-mouth-inner">
-                <div class="dj-name">PI</div>
+                <div class="dj-name">TIM</div>
             </div>
         </div>
     </div>
@@ -47,30 +43,11 @@
     $(".dj-container").show();
   });
 
-  socket.on('sessionStart', function(data){
-    $(".dj-container").show();
-  });
-
-  socket.on('sessionEnd', function(data){
-    $(".dj-container").hide();
-  });
-
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
 
     $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.state + '</h1>');
 
-    $(".dj-container").show();
-  });
-
-
-  socket.on('showPic', function(data){
-      var who = data.state;
-      if (who == 'katie') {
-        $(".message-area").html('<img src="/pic/katie.jpg" />');
-      } else {
-        $(".message-area").html('<img src="/pic/jialing.jpg" />');
-      }
     $(".dj-container").show();
   });
 

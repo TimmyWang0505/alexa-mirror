@@ -1,23 +1,12 @@
-HelloIntent say hello
-HelloIntent say hello world
 HelloIntent hello
-HelloIntent say hi
-HelloIntent say hi world
 HelloIntent hi
 HelloIntent how are you
 
-BeautyIntent who's the most beautiful woman in the world
-BeautyIntent Who is the most beautiful
-BeautyIntent Who is the best look
-BeautyIntent Who is the best looking
-
-SmartIntent Who is the smartest person in the world
-
-PlayMusicIntent music
-PlayMusicIntent play music
-StopMusicIntent stop play
-StopMusicIntent stop music
+WhosIntent who's {Item} in the world
+WhosIntent Who is {Item} in the world
+WhosIntent Who is {Item}
 
 WhatsIntent what's {Item}
+WhatsIntent what is {Item}
 WhatsIntent tell me more about {Item}
 

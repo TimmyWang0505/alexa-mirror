@@ -13,16 +13,8 @@ var index = require('./routes/index');
 var app = express();
 
 iotDevice.addSubscribeTopic('launch');
-iotDevice.addSubscribeTopic('message');
-iotDevice.addSubscribeTopic('showNameCard');
-iotDevice.addSubscribeTopic('showPic');
-
-
 iotDevice.addSubscribeTopic('hello');
-iotDevice.addSubscribeTopic('beauty');
-iotDevice.addSubscribeTopic('smart');
-// iotDevice.addSubscribeTopic('playMp3');
-// iotDevice.addSubscribeTopic('stopMp3');
+iotDevice.addSubscribeTopic('message');
 
 iotDevice.setup(function(){});
 
@@ -30,12 +22,6 @@ iotDevice.onMessage(function(topic, payload) {
     if (topic == 'launch') {
       var state = {topic:topic,state:payload.message};
       io.emit('launch',state);
-    } else if (topic == 'showNameCard') {
-      var state = {topic:topic,state:''};
-      io.emit('showNameCard',state);
-    } else if (topic == 'showPic') {
-      var state = {topic:topic,state:payload.name};
-      io.emit('showPic',state);
     } else {
       var state = {topic:topic,state:payload.message};
       io.emit('showMsg',state);
@@ -47,8 +33,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
