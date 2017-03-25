@@ -2,11 +2,30 @@ HelloIntent hello
 HelloIntent hi
 HelloIntent how are you
 
-WhosIntent who's {Item} in the world
-WhosIntent Who is {Item} in the world
-WhosIntent Who is {Item}
+QuestionIntent who's {Item} in the world
+QuestionIntent Who is {Item} in the world
+QuestionIntent Who is {Item}
 
-WhatsIntent what's {Item}
-WhatsIntent what is {Item}
-WhatsIntent tell me more about {Item}
+QuestionIntent Who are {Item}
+
+QuestionIntent what's {Item}
+QuestionIntent what is {Item}
+QuestionIntent what are {Item}
+QuestionIntent what {Item}
+QuestionIntent tell me more about {Item}
+
+QuestionIntent where {Item}
+QuestionIntent where is {Item}
+QuestionIntent where are {Item}
+
+QuestionIntent How {Item}
+QuestionIntent How to {Item}
+QuestionIntent is there {Item}
+
+ShowCartoonIntent Who am I in cartoon world
+ShowCartoonIntent show me my character in cartoon world
+ShowCartoonIntent show my cartoon image
+ShowCartoonIntent change another one
+ShowCartoonIntent any more
+
 

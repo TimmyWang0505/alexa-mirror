@@ -32,6 +32,8 @@ iot.setup = function (callback) {
         if (callback) {
             callback();
         }
+    }).on('error', function(error) {
+        console.trace(error);
     });
 
     iot.device.on('message', function(topic, payload) {

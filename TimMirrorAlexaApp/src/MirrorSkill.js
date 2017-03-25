@@ -5,6 +5,11 @@ var config = require('../config');
 
 var APP_ID = config.aws.APP_ID;
 
+var IMG_MAP = {
+    'any tool that i can use for my career planning': '/images/002.jpg',
+    'participate career station activity': '/images/001.png'
+};
+
 var MirrorSkill = function () {
     AlexaSkill.call(this, APP_ID);
 };
@@ -46,21 +51,33 @@ MirrorSkill.prototype.intentHandlers = {
         });
     },
 
-    'WhosIntent': function function (intent, session, response) {
-        var outputText = 'Are you kiding me? Definitely Echo! The smartest person!';
+    'ShowCartoonIntent': function (intent, session, response) {
+        var outputText = 'OK! Do you like it?';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+            iotDevice.pubMessage('cartoon', {'message': outputText}, function(){
                 response.ask(outputText);
             });
         });
     },
 
-    'WhatsIntent': function (intent, session, response) {
-        var outputText = getResTextFromItemMap();
+
+    'QuestionIntent': function (intent, session, response) {
+        var result = getResTextFromItemMap(intent);
+        var outputText = result.outputText;
+        var key = result.key;
         iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+            if (key == 'any tool that i can use for my career planning' 
+            || key == 'participate career station activity') {
+                var imgUrl = IMG_MAP[key];
+                iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'key': key, 'imgUrl': imgUrl}, function(){
+                    response.askWithImgCard(outputText, "Sorry! What's your question?", key, outputText, imgUrl);
+                });
+            } else {
+                iotDevice.pubMessage('message', {'type': 'message', 'message': outputText, 'key': key}, function(){
                 response.ask(outputText);
             });
+            }
+            
         });
     },
 
@@ -76,12 +93,15 @@ function getResTextFromItemMap(intent) {
         itemName = itemSlot.value.toLowerCase();
     }
     var outputText;
+    var key;
     if (items[itemName]) {
         outputText = items[itemName];
+        key = itemName;
     } else {
         outputText = "Sorry! What's your question?";
+        key = 'unknow'
     }
-    return outputText;
+    return {'outputText': outputText, 'key': key};
 }
 
 module.exports = MirrorSkill;

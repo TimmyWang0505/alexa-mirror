@@ -146,6 +146,18 @@ Response.prototype = (function () {
                 content: options.cardContent
             };
         }
+
+        if (options.cardImgUrl) {
+            alexaResponse.card = {
+                type: "Standard",
+                title: options.cardTitle,
+                text: options.cardContent,
+                image: {
+                    "smallImageUrl": options.cardImgUrl,
+                    "largeImageUrl": options.cardImgUrl,
+                }
+            };
+        }
         var returnResult = {
                 version: '1.0',
                 response: alexaResponse
@@ -173,6 +185,16 @@ Response.prototype = (function () {
                 shouldEndSession: true
             }));
         },
+        tellWithImgCard: function (speechOutput, cardTitle, cardContent, cardImgUrl) {
+            this._context.succeed(buildSpeechletResponse({
+                session: this._session,
+                output: speechOutput,
+                cardTitle: cardTitle,
+                cardContent: cardContent,
+                cardImgUrl: cardImgUrl,
+                shouldEndSession: true
+            }));
+        },
         ask: function (speechOutput, repromptSpeech) {
             this._context.succeed(buildSpeechletResponse({
                 session: this._session,
@@ -188,6 +210,17 @@ Response.prototype = (function () {
                 reprompt: repromptSpeech,
                 cardTitle: cardTitle,
                 cardContent: cardContent,
+                shouldEndSession: false
+            }));
+        },
+        askWithImgCard: function (speechOutput, repromptSpeech, cardTitle, cardContent, cardImgUrl) {
+            this._context.succeed(buildSpeechletResponse({
+                session: this._session,
+                output: speechOutput,
+                reprompt: repromptSpeech,
+                cardTitle: cardTitle,
+                cardContent: cardContent,
+                cardImgUrl: cardImgUrl,
                 shouldEndSession: false
             }));
         }

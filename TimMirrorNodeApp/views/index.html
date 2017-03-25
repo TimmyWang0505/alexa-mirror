@@ -37,6 +37,39 @@
 </body>
 <script>
   var socket = io("localhost:4000");
+  var imgUrls = [
+      '001.png',
+      '002.png',
+      '003.jpg',
+      '004.jpg',
+      '005.jpg',
+      '006.jpg',
+      '007.jpg',
+      '008.jpg',
+      '009.jpg',
+      '010.jpg',
+      '011.jpg',
+      '012.jpg',
+      '013.jpg',
+      '014.jpg',
+      '015.jpg',
+      '016.jpg',
+      '017.jpg',
+      '018.jpg',
+      '019.jpg',
+      '020.jpg',
+      '021.jpg',
+      '022.jpg',
+      '023.jpg',
+      '024.jpg',
+      '025.jpg',
+      '026.jpg',
+      '027.jpg',
+      '028.jpg',
+      '029.jpg',
+      '030.jpg'
+
+  ];
 
   $(".dj-container").hide();
   socket.on('launch', function(data){
@@ -46,10 +79,31 @@
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
 
-    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.state + '</h1>');
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>');
 
     $(".dj-container").show();
   });
+
+  socket.on('showCard', function(data){
+    console.log('message: ' + JSON.stringify(data));
+
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1><br/>' + 
+    '<img style="width:100%;" src="'+ data.imgUrl + '" />');
+
+    $(".dj-container").show();
+  });
+
+  socket.on('showCartoon', function(data){
+    console.log('message: ' + JSON.stringify(data));
+    var index = Math.floor(Math.random() * imgUrls.length);
+    var imgUrl = '/images/cartoon/' + imgUrls[index];
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1><br/>' + 
+    '<img style="width:100%;" src="'+ imgUrl + '" />');
+
+    $(".dj-container").show();
+  });
+
+  
 
 </script>
 

@@ -15,15 +15,23 @@ var app = express();
 iotDevice.addSubscribeTopic('launch');
 iotDevice.addSubscribeTopic('hello');
 iotDevice.addSubscribeTopic('message');
+iotDevice.addSubscribeTopic('card');
+iotDevice.addSubscribeTopic('cartoon');
 
 iotDevice.setup(function(){});
 
 iotDevice.onMessage(function(topic, payload) {
     if (topic == 'launch') {
-      var state = {topic:topic,state:payload.message};
+      var state = {topic:topic, message: payload.message};
       io.emit('launch',state);
+    } else if (topic == 'card') { 
+      var state = {topic:topic, message: payload.message, imgUrl: payload.imgUrl};
+      io.emit('showCard',state);
+    } else if (topic == 'cartoon') { 
+      var state = {topic:topic, message: payload.message};
+      io.emit('showCartoon',state);
     } else {
-      var state = {topic:topic,state:payload.message};
+      var state = {topic:topic, message: payload.message};
       io.emit('showMsg',state);
     }
 });

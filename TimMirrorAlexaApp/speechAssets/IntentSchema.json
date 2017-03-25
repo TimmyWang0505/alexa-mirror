@@ -1,7 +1,7 @@
 {
     "intents": [
         {
-            "intent": "WhatsIntent",
+            "intent": "QuestionIntent",
             "slots": [
                 {
                     "name": "Item",
@@ -13,16 +13,7 @@
             "intent": "HelloIntent"
         },
         {
-            "intent": "BeautyIntent"
-        },
-        {
-            "intent": "SmartIntent"
-        },
-        {
-            "intent": "PlayMusicIntent"
-        },
-        {
-            "intent": "StopMusicIntent"
+            "intent": "ShowCartoonIntent"
         },
         {
             "intent": "AMAZON.PauseIntent"
