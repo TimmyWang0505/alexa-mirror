@@ -173,7 +173,8 @@ a {
 
 }
 .dj-name {
-    margin-left: 62px;
+    text-align: center;
+    margin-left: 42px;
     color: white;
     position: relative;
     font-size: 70px;
