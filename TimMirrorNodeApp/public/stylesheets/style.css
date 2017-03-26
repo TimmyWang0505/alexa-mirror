@@ -174,10 +174,9 @@ a {
 }
 .dj-name {
     text-align: center;
-    margin-left: 42px;
     color: white;
     position: relative;
-    font-size: 70px;
+    font-size: 42px;
 }
 
 @-webkit-keyframes eyemove{
