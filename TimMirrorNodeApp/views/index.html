@@ -78,8 +78,34 @@
 
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
+    var html = data.message;
+    if (data.message.startsWith('We have four activities')) {
+         html = '<h1 class="animated fadeInRightBig">We have four activities.</h1><br/>'
+        + '<ol class="animated fadeInRightBig"><li><h1>SLT dialog</h1></li>'
+        + '<li><h1>A Normal Day Round Table</h1></li>'
+        + '<li><h1>Career Planning Station</h1></li>'
+        + '<li><h1>Invest in Yourself workshop</h1></li></ol>'
+    } else if (data.message.startsWith('Build Your Brand Feedback')) {
+        html = '<h1 class="animated fadeInRightBig">SLT Dialog:</h1><br/>'
+        + '<ol class="animated fadeInRightBig"><li><h1>Build Your Brand Feedback is a gift -- Danny</h1></li>'
+        + '<li><h1>Future Talent and Digital Talent -- Andy</h1></li>'
+        + '<li><h1>Building habits for Career Advancement -- Allan</h1></li>'
+        + '<li><h1>Do what needs to be done -- Daniel</h1></li></ol>'
+    } else if (data.message.startsWith('System Analyst')) {
+        html = '<h1 class="animated fadeInRightBig">A Normal Day Round Table:</h1><br/>'
+        + '<ol class="animated fadeInRightBig"><li><h1>System Analyst by Sun Yezi</h1></li>'
+        + '<li><h1>Architect by Yang Younky</h1></li>'
+        + '<li><h1>Scrum Master by Liu Jenny</h1></li>'
+        + '<li><h1>Manager by Run Robert</h1></li></ol>'
+    } else if (data.message.startsWith('There are four booth exhibition')) {
+        html = '<h1 class="animated fadeInRightBig">Four Booth Exhibition:</h1><br/>'
+        + '<ol class="animated fadeInRightBig"><li><h1>myCareer</h1></li>'
+        + '<li><h1>I CAN Program (on the spot registration)</h1></li>'
+        + '<li><h1>Staffing</h1></li>'
+        + '<li><h1>Learning and Resources</h1></li></ol>'
+    }
 
-    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>');
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + html + '</h1>');
 
     $(".dj-container").show();
   });

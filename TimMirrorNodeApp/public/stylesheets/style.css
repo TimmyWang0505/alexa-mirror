@@ -226,3 +226,7 @@ a {
 	-webkit-animation-iteration-count	:infinite;
 	-webkit-animation-name				:talk;
 }
+
+ol {
+    list-style-type: square;
+}

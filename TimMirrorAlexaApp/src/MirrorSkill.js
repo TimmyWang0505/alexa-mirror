@@ -5,11 +5,6 @@ var config = require('../config');
 
 var APP_ID = config.aws.APP_ID;
 
-var IMG_MAP = {
-    'any tool that i can use for my career planning': '/images/002.jpg',
-    'participate career station activity': '/images/001.png'
-};
-
 var MirrorSkill = function () {
     AlexaSkill.call(this, APP_ID);
 };
@@ -51,8 +46,35 @@ MirrorSkill.prototype.intentHandlers = {
         });
     },
 
+    'VideoQuestionAIntent': function (intent, session, response) {
+        var outputText = 'I am the innovation';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    // 'VideoQuestionBIntent': function (intent, session, response) {
+    //     var outputText = 'Fidelity’s innovative culture and your creative mind give life to me.';
+    //     iotDevice.setup(function(){
+    //         iotDevice.pubMessage('message', {'message': outputText}, function(){
+    //             response.ask(outputText);
+    //         });
+    //     });
+    // },
+
+    // 'VideoQuestionCIntent': function (intent, session, response) {
+    //     var outputText = 'Fidelity’s innovative culture and your creative mind give life to me. And I will live forever because Fidelity’s innovative forever.';
+    //     iotDevice.setup(function(){
+    //         iotDevice.pubMessage('message', {'message': outputText}, function(){
+    //             response.ask(outputText);
+    //         });
+    //     });
+    // },
+
     'ShowCartoonIntent': function (intent, session, response) {
-        var outputText = 'OK! Do you like it?';
+        var outputText = 'OK! Do you like it? :)';
         iotDevice.setup(function(){
             iotDevice.pubMessage('cartoon', {'message': outputText}, function(){
                 response.ask(outputText);
@@ -60,24 +82,87 @@ MirrorSkill.prototype.intentHandlers = {
         });
     },
 
-
-    'QuestionIntent': function (intent, session, response) {
-        var result = getResTextFromItemMap(intent);
-        var outputText = result.outputText;
-        var key = result.key;
+    'QuestionAIntent': function (intent, session, response) {
+        var outputText = 'The one who has passion to have career advancement';
         iotDevice.setup(function(){
-            if (key == 'any tool that i can use for my career planning' 
-            || key == 'participate career station activity') {
-                var imgUrl = IMG_MAP[key];
-                iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'key': key, 'imgUrl': imgUrl}, function(){
-                    response.askWithImgCard(outputText, "Sorry! What's your question?", key, outputText, imgUrl);
-                });
-            } else {
-                iotDevice.pubMessage('message', {'type': 'message', 'message': outputText, 'key': key}, function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
                 response.ask(outputText);
             });
-            }
-            
+        });
+    },
+    'QuestionBIntent': function (intent, session, response) {
+        var outputText = 'We have four activities. SLT dialog. A Normal Day Round Table. Career Planning Station. Invest in Yourself workshop';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+    'QuestionCIntent': function (intent, session, response) {
+        var outputText = 'Build Your Brand Feedback is a gift by Danny. Future Talent and Digital Talent by Andy. Building habits for Career Advancement by Allan. Do what needs to be done by Daniel.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+    'QuestionDIntent': function (intent, session, response) {
+        var outputText = 'System Analyst, Sun Yezi. Architect, Yang Younky. scrum master, Liu Jenny. Manager, Run Robert.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'QuestionEIntent': function (intent, session, response) {
+        var outputText = 'Please see the trip guide.';
+        var imgUrl = '/images/001.png';
+        var key = 'participate career station activity';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'key': key, 'imgUrl': imgUrl}, function(){
+                response.ask(outputText);
+                //  response.askWithImgCard(outputText, "Sorry! What's your question?", key, outputText, imgUrl);
+            });
+        });
+    },
+
+    'QuestionFIntent': function (intent, session, response) {
+        var outputText = 'There are four booth exhibition, they are my career, I can program, staffing and learning and resources.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'QuestionGIntent': function (intent, session, response) {
+        var outputText = 'Visit the 4 booths in Boston room and participate the activities in each booth';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'QuestionHIntent': function (intent, session, response) {
+        var outputText = 'Yes! You can use my career to plan your career. Please go to my career Booth for more information.';
+        var imgUrl = '/images/002.jpg';
+        var key = 'any tool that i can use for my career planning';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'key': key, 'imgUrl': imgUrl}, function(){
+                 response.ask(outputText);
+                //  response.askWithImgCard(outputText, "Sorry! What's your question?", key, outputText, imgUrl);
+            });
+        });
+    },
+
+    'QuestionIIntent': function (intent, session, response) {
+        var outputText = 'In third round I CAN Session, you can go to I CAN booth in Boston to register on the spot.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'message': outputText}, function(){
+                response.ask(outputText);
+            });
         });
     },
 
@@ -85,23 +170,5 @@ MirrorSkill.prototype.intentHandlers = {
         response.ask('You can ask me question!', 'You can ask me question!');
     }
 };
-
-function getResTextFromItemMap(intent) {
-    var itemSlot = intent.slots.Item;
-    var itemName;
-    if (itemSlot && itemSlot.value){
-        itemName = itemSlot.value.toLowerCase();
-    }
-    var outputText;
-    var key;
-    if (items[itemName]) {
-        outputText = items[itemName];
-        key = itemName;
-    } else {
-        outputText = "Sorry! What's your question?";
-        key = 'unknow'
-    }
-    return {'outputText': outputText, 'key': key};
-}
 
 module.exports = MirrorSkill;

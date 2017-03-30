@@ -1,16 +1,35 @@
 {
     "intents": [
         {
-            "intent": "QuestionIntent",
-            "slots": [
-                {
-                    "name": "Item",
-                    "type": "LIST_OF_ITEMS"
-                }
-            ]
+            "intent": "VideoQuestionAIntent"
         },
-      	{
-            "intent": "HelloIntent"
+        {
+            "intent": "VideoQuestionBIntent"
+        },
+        {
+            "intent": "VideoQuestionCIntent"
+        },
+
+        {
+            "intent": "QuestionAIntent"
+        },
+        {
+            "intent": "QuestionDIntent"
+        },
+        {
+            "intent": "QuestionEIntent"
+        },
+        {
+            "intent": "QuestionFIntent"
+        },
+        {
+            "intent": "QuestionGIntent"
+        },
+        {
+            "intent": "QuestionHIntent"
+        },
+        {
+            "intent": "QuestionIIntent"
         },
         {
             "intent": "ShowCartoonIntent"

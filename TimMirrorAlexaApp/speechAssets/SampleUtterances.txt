@@ -1,31 +1,31 @@
-HelloIntent hello
-HelloIntent hi
-HelloIntent how are you
-
-QuestionIntent who's {Item} in the world
-QuestionIntent Who is {Item} in the world
-QuestionIntent Who is {Item}
-
-QuestionIntent Who are {Item}
-
-QuestionIntent what's {Item}
-QuestionIntent what is {Item}
-QuestionIntent what are {Item}
-QuestionIntent what {Item}
-QuestionIntent tell me more about {Item}
-
-QuestionIntent where {Item}
-QuestionIntent where is {Item}
-QuestionIntent where are {Item}
-
-QuestionIntent How {Item}
-QuestionIntent How to {Item}
-QuestionIntent is there {Item}
 
 ShowCartoonIntent Who am I in cartoon world
 ShowCartoonIntent show me my character in cartoon world
 ShowCartoonIntent show my cartoon image
+ShowCartoonIntent show my cartoon picture
+ShowCartoonIntent show my new picture
+ShowCartoonIntent show my picture
 ShowCartoonIntent change another one
-ShowCartoonIntent any more
+ShowCartoonIntent another one
 
+VideoQuestionAIntent mirror what is innovation
+VideoQuestionAIntent what is innovation
+VideoQuestionAIntent what's innovation
 
+QuestionAIntent Who is the most beautiful associate
+QuestionBIntent What activities that I can join in
+QuestionBIntent What activities that I can participate in
+QuestionBIntent What activities that I can participate in the career tradeshow
+QuestionCIntent tell me more about SLT Dialog
+QuestionCIntent what is SLT Dialog
+QuestionCIntent what's SLT Dialog
+QuestionDIntent Who lead a normal day round table
+QuestionEIntent How to participate Career Station Activity
+QuestionFIntent What activities in Boston Room
+QuestionFIntent What are the activities in Boston Room
+QuestionGIntent How can I get gift
+QuestionGIntent How to get gift
+QuestionHIntent Is there any tool
+QuestionHIntent Is there any tool that I can use for my career planning
+QuestionIIntent how to register I CAN Session
+QuestionIIntent Where I can register I CAN Session
