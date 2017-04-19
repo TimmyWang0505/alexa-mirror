@@ -30,7 +30,7 @@
         </div>
         <div class="dj-mouth talk">
             <div class="dj-mouth-inner">
-                <div class="dj-name">TIM</div>
+                <div class="dj-name">Mirror</div>
             </div>
         </div>
     </div>
@@ -46,7 +46,16 @@
   socket.on('showMsg', function(data){
     console.log('message: ' + JSON.stringify(data));
 
-    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.state + '</h1>');
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>');
+
+    $(".dj-container").show();
+  });
+
+  socket.on('showCard', function(data){
+    console.log('message: ' + JSON.stringify(data));
+    var imgUrl = 'images/' + data.imgUrl;
+    $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>'
+    + '<img style="width:100%;" src="' + imgUrl + '" />');
 
     $(".dj-container").show();
   });

@@ -39,14 +39,14 @@ MirrorSkill.prototype.intentHandlers = {
     'HowToLearnDtIntent': function (intent, session, response) {
         var outputText = 'This is the learning model we provided.';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'howto.png'}, function(){
                 response.ask(outputText);
             });
         });
     },
 
     'WhatKindsOfDtSupportIntent': function (intent, session, response) {
-        var outputText = 'Currently it support Cyber security, cloud, android mobile development and IOS mobile development.' 
+        var outputText = 'Currently it support cyber security, cloud, Android mobile development and IOS mobile development.' 
             + 'The artificial intelligence, big data are under development.';
         iotDevice.setup(function(){
             iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
@@ -58,16 +58,31 @@ MirrorSkill.prototype.intentHandlers = {
     'showDigitalTrendsIntent': function (intent, session, response) {
         var outputText = 'Here is the digital technology trends since 1950. It covered the major event and technology.';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'trends.png'}, function(){
                 response.ask(outputText);
             });
         });
     },
 
     'ShowMeLearningPathIntent': function (intent, session, response) {
-        var outputText = getResTextFromItemMap();
+        var outputText = getResTextFromItemMap(intent);
+
+        var itemSlot = intent.slots.Item;
+        var itemName = '';
+        if (itemSlot && itemSlot.value){
+            itemName = itemSlot.value.toLowerCase();
+        }
+
+        var IMGS_MAP = {
+            'cyber security': 'security.png',
+            'cloud': 'cloud.png',
+            'android': 'android.png',
+            'ios': 'ios.png',
+            '': 'default.png'
+        };
+        var imgURL = IMGS_MAP[itemName]
         iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': imgURL}, function(){
                 response.ask(outputText);
             });
         });
@@ -104,41 +119,11 @@ MirrorSkill.prototype.intentHandlers = {
             colorName = colorSlot.value.toLowerCase();
         }
 
-        var key = itemName + colorName;
+        var key = itemName + '-' + colorName;
         var outputText = "Sorry! What's your question?";
         if (RESULT_MAP[key] != undefined) {
             outputText = RESULT_MAP[key] + ' associates passed it';
         } 
-        iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
-                response.ask(outputText);
-            });
-        });
-    },
-
-
-
-    // register custom intent handlers
-    'HelloIntent': function (intent, session, response) {
-        var outputText = 'Hello!';
-        iotDevice.setup(function(){
-            iotDevice.pubMessage('hello', {'message': outputText}, function(){
-                response.ask(outputText);
-            });
-        });
-    },
-
-    'WhosIntent': function (intent, session, response) {ß
-        var outputText = 'Are you kiding me? Definitely Echo! The smartest person!';
-        iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
-                response.ask(outputText);
-            });
-        });
-    },
-
-    'WhatsIntent': function (intent, session, response) {
-        var outputText = getResTextFromItemMap();
         iotDevice.setup(function(){
             iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
                 response.ask(outputText);
