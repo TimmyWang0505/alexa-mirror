@@ -36,6 +36,88 @@ MirrorSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 };
 
 MirrorSkill.prototype.intentHandlers = {
+    'HowToLearnDtIntent': function (intent, session, response) {
+        var outputText = 'This is the learning model we provided.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'WhatKindsOfDtSupportIntent': function (intent, session, response) {
+        var outputText = 'Currently it support Cyber security, cloud, android mobile development and IOS mobile development.' 
+            + 'The artificial intelligence, big data are under development.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'showDigitalTrendsIntent': function (intent, session, response) {
+        var outputText = 'Here is the digital technology trends since 1950. It covered the major event and technology.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'ShowMeLearningPathIntent': function (intent, session, response) {
+        var outputText = getResTextFromItemMap();
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'HowmanyPassedIntent': function (intent, session, response) {
+        var RESULT_MAP = {
+            'cyber security-yellow': 100,
+            'cyber security-green': 100,
+            'cyber security-purple': 100,
+
+            'cloud-yellow': 100,
+            'cloud-green': 100,
+            'cloud-purple': 100,
+
+            'android-yellow': 100,
+            'android-green': 100,
+            'android-purple': 100,
+
+            'ios-yellow': 100,
+            'ios-green': 100,
+            'ios-purple': 100
+        };
+
+        var itemSlot = intent.slots.Item;
+        var itemName = '';
+        if (itemSlot && itemSlot.value){
+            itemName = itemSlot.value.toLowerCase();
+        }
+
+        var colorSlot = intent.slots.Color;
+        var colorName = '';
+        if (colorSlot && colorSlot.value){
+            colorName = colorSlot.value.toLowerCase();
+        }
+
+        var key = itemName + colorName;
+        var outputText = "Sorry! What's your question?";
+        if (RESULT_MAP[key] != undefined) {
+            outputText = RESULT_MAP[key] + ' associates passed it';
+        } 
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+
+
     // register custom intent handlers
     'HelloIntent': function (intent, session, response) {
         var outputText = 'Hello!';
@@ -46,7 +128,7 @@ MirrorSkill.prototype.intentHandlers = {
         });
     },
 
-    'WhosIntent': function function (intent, session, response) {
+    'WhosIntent': function (intent, session, response) {ß
         var outputText = 'Are you kiding me? Definitely Echo! The smartest person!';
         iotDevice.setup(function(){
             iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){

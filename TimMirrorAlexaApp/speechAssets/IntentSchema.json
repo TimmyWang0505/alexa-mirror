@@ -1,7 +1,7 @@
 {
     "intents": [
         {
-            "intent": "WhatsIntent",
+            "intent": "ShowMeLearningPathIntent",
             "slots": [
                 {
                     "name": "Item",
@@ -9,20 +9,30 @@
                 }
             ]
         },
-      	{
-            "intent": "HelloIntent"
+
+        {
+            "intent": "HowmanyPassedIntent",
+            "slots": [
+                {
+                    "name": "Item",
+                    "type": "LIST_OF_ITEMS"
+                },
+                {
+                    "name": "Color",
+                    "type": "LIST_OF_COLORS"
+                }
+            ]
+        },
+        
+        {
+            "intent": "showDigitalTrendsIntent"
+        },
+
+        {
+            "intent": "WhatKindsOfDtSupportIntent"
         },
         {
-            "intent": "BeautyIntent"
-        },
-        {
-            "intent": "SmartIntent"
-        },
-        {
-            "intent": "PlayMusicIntent"
-        },
-        {
-            "intent": "StopMusicIntent"
+            "intent": "HowToLearnDtIntent"
         },
         {
             "intent": "AMAZON.PauseIntent"

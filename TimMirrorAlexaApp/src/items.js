@@ -1,14 +1,10 @@
 
-var BEAUTIFUL_MAN = 'Are you kiding me? Definitely Katie! The most beautiful woman in the world!',
-    SMARTEST_MAN = 'Are you kiding me? Definitely Echo! The smartest person!';
+var HOW_TO_LEARN_1 = 'This is the ',
+    HOW_TO_LEARN_2 = ' learning path which is developed by Dalian';
 
 module.exports = {
-    //What...
-    'pi culture': 'test text',
-
-    //Who...
-    'the most beautiful woman': BEAUTIFUL_MAN,
-    'the most beautiful': BEAUTIFUL_MAN,
-    'the best looking': BEAUTIFUL_MAN,
-    'the smartest person': SMARTEST_MAN
+    'cyber security': HOW_TO_LEARN_1 + 'cyber security' + HOW_TO_LEARN_2,
+    'cloud': HOW_TO_LEARN_1 + 'cloud' + HOW_TO_LEARN_2,
+    'android': HOW_TO_LEARN_1 + 'android' + HOW_TO_LEARN_2,
+    'ios': HOW_TO_LEARN_1 + 'ios' + HOW_TO_LEARN_2
 };

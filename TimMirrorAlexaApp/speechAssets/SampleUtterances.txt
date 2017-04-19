@@ -1,12 +1,10 @@
-HelloIntent hello
-HelloIntent hi
-HelloIntent how are you
+HowToLearnDtIntent How to learn digital technology
 
-WhosIntent who's {Item} in the world
-WhosIntent Who is {Item} in the world
-WhosIntent Who is {Item}
+WhatKindsOfDtSupportIntent what kinds of digital technologies support by the leaning model
 
-WhatsIntent what's {Item}
-WhatsIntent what is {Item}
-WhatsIntent tell me more about {Item}
+ShowMeLearningPathIntent show me the learning path for {Item}
+
+HowmanyPassedIntent How many associates passed the {Color} badge on {Item}
+
+showDigitalTrendsIntent show me the digital technology trends
 
