@@ -1,48 +1,47 @@
 {
-    "intents": [
+  "intents": [
+    {
+      "slots": [
         {
-            "intent": "ShowMeLearningPathIntent",
-            "slots": [
-                {
-                    "name": "Item",
-                    "type": "LIST_OF_ITEMS"
-                }
-            ]
-        },
-
-        {
-            "intent": "HowmanyPassedIntent",
-            "slots": [
-                {
-                    "name": "Item",
-                    "type": "LIST_OF_ITEMS"
-                },
-                {
-                    "name": "Color",
-                    "type": "LIST_OF_COLORS"
-                }
-            ]
-        },
-        
-        {
-            "intent": "PassYellowBadgeIntent"
-        },
-
-        {
-            "intent": "showDigitalTrendsIntent"
-        },
-
-        {
-            "intent": "WhatKindsOfDtSupportIntent"
-        },
-        {
-            "intent": "HowToLearnDtIntent"
-        },
-        {
-            "intent": "AMAZON.PauseIntent"
-        },
-        {
-            "intent": "AMAZON.ResumeIntent"
+          "name": "Item",
+          "type": "LIST_OF_ITEMS"
         }
-    ]
+      ],
+      "intent": "ShowMeLearningPathIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "Item",
+          "type": "LIST_OF_ITEMS"
+        },
+        {
+          "name": "Color",
+          "type": "LIST_OF_COLORS"
+        }
+      ],
+      "intent": "HowmanyPassedIntent"
+    },
+    {
+      "intent": "showDigitalTrendsIntent"
+    },
+    {
+      "intent": "PassYellowBadgeIntent"
+    },
+    {
+      "intent": "WhatKindsOfDtSupportIntent"
+    },
+    {
+      "intent": "HowToLearnDtIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
 }

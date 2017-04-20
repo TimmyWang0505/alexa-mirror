@@ -89,7 +89,7 @@ MirrorSkill.prototype.intentHandlers = {
     'PassYellowBadgeIntent': function (intent, session, response) {
         var outputText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow badge coverage for them.'
         + 'There are 78.45% associates get the yellow badge on cyber security, and 60.7% associates get yellow badge on cloud.';
-        var displayText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow back coverage for them.' 
+        var displayText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow badge coverage for them.' 
             + '<br><br>Cyber security: 222 (78.45%)' 
             + '<br>Cloud: 170 (60.7%)'
         iotDevice.setup(function(){
@@ -171,7 +171,12 @@ MirrorSkill.prototype.intentHandlers = {
 
     'AMAZON.HelpIntent': function (intent, session, response) {
         response.ask('You can ask me question!', 'You can ask me question!');
-    }
+    },
+
+    'AMAZON.StopIntent': function (intent, session, response) {
+        response.tell('Bye!');
+    },
+    
 };
 
 function getResTextFromItemMap(intent) {

@@ -16,3 +16,8 @@ HowmanyPassedIntent How many associates passed the {Color} badge on {Item}
 
 PassYellowBadgeIntent show me the digital skills yellow badge coverage
 
+AMAZON.StopIntent stop
+
+AMAZON.StopIntent thanks
+
+AMAZON.StopIntent bye
