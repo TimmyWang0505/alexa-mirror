@@ -25,6 +25,10 @@
         },
         
         {
+            "intent": "PassYellowBadgeIntent"
+        },
+
+        {
             "intent": "showDigitalTrendsIntent"
         },
 

@@ -39,10 +39,14 @@ MirrorSkill.prototype.intentHandlers = {
 
     'WhatKindsOfDtSupportIntent': function (intent, session, response) {
         //TODO: 
-        var outputText = 'Currently it support cyber security, cloud, Android mobile development and IOS mobile development.' 
-            + 'The artificial intelligence, big data are under development.';
+        var outputText = 'To be a digital talent, both the skills and mindsets are required. ' 
+        + 'There are two types of skills are defined. The foundational skills and specialty skills. ' 
+        + 'For the foundational skills, all employees should have an awareness of each of these skills.' 
+        + 'The skills in yellow are PI Dalian’s focus in 2017, and we provided the learning path for these skills. '
+        + 'The skills in green are what we have built.  The specialty skills will become relevant within the next 18-24 months.' 
+        + 'For the mindset change, we would like to build the leadership capabilities from three areas. Customer obsessed, people powering and future fast.';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'dtp.png'}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'PI Digital Talent Profile', 'imgURL': 'dtp.png'}, function(){
                 response.ask(outputText);
             });
         });
@@ -63,6 +67,19 @@ MirrorSkill.prototype.intentHandlers = {
         var outputText = 'Here is the digital technology trends since 1950. It covered the major event and technology.';
         iotDevice.setup(function(){
             iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'trends.png'}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'PassYellowBadgeIntent': function (intent, session, response) {
+        var outputText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow back coverage for them.'
+        + 'There are 78.45% associates get the yellow badge on cyber security, and 60.7% associates get yellow badge on cloud.';
+        var displayText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow back coverage for them.' 
+            + '<br>yber security: 222 (78.45%)' 
+            + '<br>Cloud: 170 (60.7%)'
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': displayText, 'imgURL': 'trends.png'}, function(){
                 response.ask(outputText);
             });
         });

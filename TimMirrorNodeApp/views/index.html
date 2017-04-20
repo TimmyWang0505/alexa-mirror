@@ -48,7 +48,7 @@
 
     $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>');
 
-    $(".dj-container").show();
+    $(".dj-container").hide();
   });
 
   socket.on('showCard', function(data){
@@ -57,7 +57,7 @@
     $(".message-area").html('<h1 class="animated fadeInRightBig">' + data.message + '</h1>'
     + '<img style="width:100%;" src="' + imgUrl + '" />');
 
-    $(".dj-container").show();
+    $(".dj-container").hide();
   });
 
 </script>
