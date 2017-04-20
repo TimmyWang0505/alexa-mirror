@@ -16,8 +16,8 @@ MirrorSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session,
     console.log('MirrorSkill onLaunch requestId: ' + launchRequest.requestId + ', sessionId: ' + session.sessionId);
     iotDevice.setup(function(){
         iotDevice.pubMessage('launch', {'message': 'launch'}, function(){
-            var speechOutput = 'Hello, master, what can I do for you?';
-            var repromptText = 'Hello, master, what can I do for you?';
+            var speechOutput = 'Hello, I am mirror AI, what can I do for you?';
+            var repromptText = 'Hello, I am mirror AI, what can I do for you?';
             response.ask(speechOutput, repromptText);
         });
     });
@@ -36,7 +36,20 @@ MirrorSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 };
 
 MirrorSkill.prototype.intentHandlers = {
+
+    'WhatKindsOfDtSupportIntent': function (intent, session, response) {
+        //TODO: 
+        var outputText = 'Currently it support cyber security, cloud, Android mobile development and IOS mobile development.' 
+            + 'The artificial intelligence, big data are under development.';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'dtp.png'}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
     'HowToLearnDtIntent': function (intent, session, response) {
+        //TODO: update the alexa response text...
         var outputText = 'This is the learning model we provided.';
         iotDevice.setup(function(){
             iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'howto.png'}, function(){
@@ -45,15 +58,6 @@ MirrorSkill.prototype.intentHandlers = {
         });
     },
 
-    'WhatKindsOfDtSupportIntent': function (intent, session, response) {
-        var outputText = 'Currently it support cyber security, cloud, Android mobile development and IOS mobile development.' 
-            + 'The artificial intelligence, big data are under development.';
-        iotDevice.setup(function(){
-            iotDevice.pubMessage('message', {'type': 'message', 'message': outputText}, function(){
-                response.ask(outputText);
-            });
-        });
-    },
 
     'showDigitalTrendsIntent': function (intent, session, response) {
         var outputText = 'Here is the digital technology trends since 1950. It covered the major event and technology.';
@@ -65,6 +69,7 @@ MirrorSkill.prototype.intentHandlers = {
     },
 
     'ShowMeLearningPathIntent': function (intent, session, response) {
+        //TODO: update the alexa response text
         var outputText = getResTextFromItemMap(intent);
 
         var itemSlot = intent.slots.Item;
