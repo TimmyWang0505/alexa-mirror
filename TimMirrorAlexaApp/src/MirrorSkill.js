@@ -36,9 +36,8 @@ MirrorSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 };
 
 MirrorSkill.prototype.intentHandlers = {
-
+    //Done
     'WhatKindsOfDtSupportIntent': function (intent, session, response) {
-        //TODO: 
         var outputText = 'To be a digital talent, both the skills and mindsets are required. ' 
         + 'There are two types of skills are defined. The foundational skills and specialty skills. ' 
         + 'For the foundational skills, all employees should have an awareness of each of these skills.' 
@@ -54,9 +53,18 @@ MirrorSkill.prototype.intentHandlers = {
 
     'HowToLearnDtIntent': function (intent, session, response) {
         //TODO: update the alexa response text...
-        var outputText = 'This is the learning model we provided.';
+        var outputText = 'This is the learning model which can help you build your digital skills.' 
+            + 'There are four Badge Levels, Apprentice, Practitioner, Leader and Master. '
+            + 'You can acquire abundant technology learning resources from PI Badge-Level Appropriate Training' 
+            + 'or PI Dalian Badge-Level Appropriate Training. ' 
+            + 'After completing the corresponding training and obtaining the qualified skills, ' 
+            + 'you can obtain Apprentice badge level. ' 
+            + 'After that you can apply skills and deliver business value in your daily work, ' 
+            + 'so that you can get Practitioner badge level. ' 
+            + 'And after that you can take complementary PI Specific Training to get the Leader Level and Master Level badge. ' 
+            + 'You can learn more from the learning path for a digital skill.';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'howto.png'}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'This is the learning model which can help you build your digital skills.', 'imgURL': 'howto.png'}, function(){
                 response.ask(outputText);
             });
         });
@@ -64,27 +72,34 @@ MirrorSkill.prototype.intentHandlers = {
 
 
     'showDigitalTrendsIntent': function (intent, session, response) {
-        var outputText = 'Here is the digital technology trends since 1950. It covered the major event and technology.';
+        //TODO: update the script
+        var outputText = 'Along with the time line, we can step back to see the evolution of technology. ' 
+            + 'You can find in the recent ten years, the technology was developed so rapidly. ' 
+            + 'You may be aware of that Amazon EC2, OpenStack, Docker and AlphaGo which are popped up in recent ten years and continuously come to our ears in our daily life. ' 
+            + 'And some of them are already used in our delivery work. Based on predict by MITSloan, ' 
+            + 'in the year of 2025, some emerging technologies will achieve prosperity, ' 
+            + 'like Big Data, AI, Blockchain and Cyber Security, etc.';
         iotDevice.setup(function(){
-            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': 'trends.png'}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'Technology Trend', 'imgURL': 'trends.png'}, function(){
                 response.ask(outputText);
             });
         });
     },
-
+    //Done
     'PassYellowBadgeIntent': function (intent, session, response) {
-        var outputText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow back coverage for them.'
+        var outputText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow badge coverage for them.'
         + 'There are 78.45% associates get the yellow badge on cyber security, and 60.7% associates get yellow badge on cloud.';
         var displayText = 'Currently we are mainly focusing on the cyber security and cloud. Here is the yellow back coverage for them.' 
-            + '<br>yber security: 222 (78.45%)' 
+            + '<br><br>Cyber security: 222 (78.45%)' 
             + '<br>Cloud: 170 (60.7%)'
         iotDevice.setup(function(){
-            iotDevice.pubMessage('card', {'type': 'card', 'message': displayText, 'imgURL': 'trends.png'}, function(){
+            iotDevice.pubMessage('message', {'type': 'message', 'message': displayText}, function(){
                 response.ask(outputText);
             });
         });
     },
 
+    //Done
     'ShowMeLearningPathIntent': function (intent, session, response) {
         //TODO: update the alexa response text
         var outputText = getResTextFromItemMap(intent);
@@ -104,15 +119,16 @@ MirrorSkill.prototype.intentHandlers = {
         };
         var imgURL = IMGS_MAP[itemName]
         iotDevice.setup(function(){
-            iotDevice.pubMessage('card', {'type': 'card', 'message': outputText, 'imgURL': imgURL}, function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'Learning Path', 'imgURL': imgURL}, function(){
                 response.ask(outputText);
             });
         });
     },
 
+    //Done
     'HowmanyPassedIntent': function (intent, session, response) {
         var RESULT_MAP = {
-            'cyber security-yellow': 100,
+            'cyber security-yellow': 98,
             'cyber security-green': 100,
             'cyber security-purple': 100,
 
