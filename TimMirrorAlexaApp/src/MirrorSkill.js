@@ -36,6 +36,25 @@ MirrorSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 };
 
 MirrorSkill.prototype.intentHandlers = {
+    'BeautyWomanIntent': function (intent, session, response) {
+        var outputText = 'Are you kidding me? Definitely kaite, the most beautiful woman in the world!';
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'The Most Beautiful Woman', 'imgURL': 'katie.png'}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
+    'SmartPersonIntent': function (intent, session, response) {
+        var outputText = 'Of course the answer should be Albert Einstein.' 
+        + 'But my master trained me to answer his name, Tim Wang, the most smartest person in the world. Ha Ha.';    
+        iotDevice.setup(function(){
+            iotDevice.pubMessage('card', {'type': 'card', 'message': 'The "Smartest" Person : )', 'imgURL': 'tim.png'}, function(){
+                response.ask(outputText);
+            });
+        });
+    },
+
     //Done
     'WhatKindsOfDtSupportIntent': function (intent, session, response) {
         var outputText = 'To be a digital talent, both the skills and mindsets are required. ' 

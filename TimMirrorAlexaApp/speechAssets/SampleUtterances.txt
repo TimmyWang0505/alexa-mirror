@@ -3,7 +3,6 @@ WhatKindsOfDtSupportIntent what kinds of digital technologies support by the lea
 ShowMeLearningPathIntent show me the learning path for {Item}
 showDigitalTrendsIntent show me the digital technology trends
 
-
 showDigitalTrendsIntent show me the digital technology trends chart
 
 HowToLearnDtIntent how can I become digital talent
@@ -21,3 +20,11 @@ AMAZON.StopIntent stop
 AMAZON.StopIntent thanks
 
 AMAZON.StopIntent bye
+
+SmartPersonIntent Who is the smartest person in the world
+
+SmartPersonIntent Who is the smartest person
+
+BeautyWomanIntent Who is the most beautiful woman
+
+BeautyWomanIntent Who is the most beautiful woman in the world

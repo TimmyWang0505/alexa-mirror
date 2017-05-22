@@ -38,6 +38,12 @@
       "intent": "AMAZON.PauseIntent"
     },
     {
+      "intent": "BeautyWomanIntent"
+    },
+    {
+      "intent": "SmartPersonIntent"
+    },
+    {
       "intent": "AMAZON.ResumeIntent"
     },
     {
